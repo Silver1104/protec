@@ -101,7 +101,7 @@ import axios from 'axios';
 // Automatically detect API URL based on environment
 const API_URL = import.meta.env.VITE_API_URL ||
     (import.meta.env.MODE === 'production'
-        ? 'https://your-backend-app.onrender.com/api'  // Update after deploying backend
+        ? 'https://protec-backend.onrender.com/api'  // Update after deploying backend
         : 'http://localhost:5000/api');
 
 console.log('API URL:', API_URL); // Debug log
