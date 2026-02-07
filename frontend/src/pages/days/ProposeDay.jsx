@@ -152,9 +152,9 @@ export const ProposeDay = () => {
                             <p className="text-xl text-gray-700 mb-6">
                                 You completed the puzzle, and you complete me. ❤️
                                 <br />
-                                Every day with you is a piece of my perfect life.
+                                Happy proposal day bitch
                                 <br />
-                                I love you more than words can express!
+                                You are my end
                             </p>
 
                             <motion.div
