@@ -141,11 +141,11 @@ export const RoseDay = () => {
                     className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto"
                 >
                     <p className="text-2xl font-display text-red-600 mb-4">
-                        "A rose by any other name would smell as sweet"
+                        "The rose was never our flower"
                     </p>
                     <p className="text-lg text-gray-700">
-                        But you, my love, are sweeter than any rose in existence.
-                        This enchanted rose represents my eternal love for you. ❤️
+                        But for you, my love, every nonsense tradition makes sense.
+                        I shall love you longer than all the roses in the world live.
                     </p>
                 </motion.div>
             </div>
