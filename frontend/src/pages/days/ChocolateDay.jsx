@@ -284,13 +284,13 @@ export const ChocolateDay = () => {
 
                         <div className="bg-pink-50 rounded-xl p-4 md:p-6 mb-6">
                             <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
-                                You caught all the sweetness! 💖
+                                Hue hue of course you would win my love! 💖
                             </h2>
                             <p className="text-base md:text-lg text-gray-700 mb-2">
-                                Just like how I want to catch every moment with you...
+                                Maybe I should send u myself covered in chocolate at some point...
                             </p>
                             <p className="text-lg md:text-xl font-semibold text-pink-600">
-                                Happy Chocolate Day, my love! 🍫✨
+                                But till then, your gifts shall come soon :3 🍫✨
                             </p>
                         </div>
 
