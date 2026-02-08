@@ -8,9 +8,9 @@ import { choicesAPI } from '../../utils/api';
 import toast from 'react-hot-toast';
 
 const DIFFICULTIES = {
-    easy: { speed: 0.4, spawnRate: 2500, label: 'Easy', emoji: '😊' },
-    medium: { speed: 0.7, spawnRate: 2000, label: 'Medium', emoji: '😎' },
-    hard: { speed: 1.0, spawnRate: 1600, label: 'Hard', emoji: '🔥' },
+    easy: { speed: 1.0, spawnRate: 2500, label: 'Easy', emoji: '😊' },
+    medium: { speed: 1.5, spawnRate: 2000, label: 'Medium', emoji: '😎' },
+    hard: { speed: 2.0, spawnRate: 1600, label: 'Hard', emoji: '🔥' },
 };
 
 
