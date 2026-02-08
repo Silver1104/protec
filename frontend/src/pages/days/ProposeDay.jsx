@@ -89,79 +89,86 @@ export const ProposeDay = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-pink-50 via-red-50 to-purple-50 p-4 flex items-center justify-center">
+        <div className="min-h-screen bg-gradient-to-br from-pink-50 via-red-50 to-purple-50 p-4 sm:p-6 lg:p-8 flex items-center justify-center">
             {showConfetti && <Confetti />}
 
-            <div className="max-w-2xl w-full space-y-8">
-                <div className="text-center space-y-2">
-                    <h1 className="text-4xl font-bold text-pink-600">
+            <div className="max-w-2xl w-full space-y-6 sm:space-y-8">
+                {/* Header */}
+                <div className="text-center space-y-2 px-4">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-pink-600">
                         Propose Day Puzzle 💍
                     </h1>
-                    <p className="text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600">
                         Solve the puzzle to reveal my proposal...
                     </p>
                 </div>
 
-                {/* Puzzle grid */}
-                <div className="bg-white rounded-2xl shadow-2xl p-6 space-y-6">
-                    <div className="grid grid-cols-3 gap-1 w-[400px] h-[400px] mx-auto bg-gray-800 p-1 rounded-xl">
-                        {tiles.map((tile, index) => {
-                            const isEmpty = tile === 8;
+                {/* Puzzle Container */}
+                <div className="bg-white rounded-2xl shadow-2xl p-4 sm:p-6 space-y-4 sm:space-y-6">
+                    {/* Puzzle Grid - Responsive sizing */}
+                    <div className="w-full max-w-[400px] mx-auto aspect-square">
+                        <div className="grid grid-cols-3 gap-1 w-full h-full bg-gray-800 p-1 rounded-xl">
+                            {tiles.map((tile, index) => {
+                                const isEmpty = tile === 8;
 
-                            // Calculate which piece of the image this tile should show
-                            // tile tells us which piece (0-8), we need to know its position in the solved puzzle
-                            const tileRow = Math.floor(tile / 3); // 0, 1, or 2
-                            const tileCol = tile % 3; // 0, 1, or 2
+                                // Calculate which piece of the image this tile should show
+                                const tileRow = Math.floor(tile / 3);
+                                const tileCol = tile % 3;
 
-                            // For a 3x3 grid, each tile shows 1/3 of the image
-                            // Position 0 = 0%, Position 1 = 50%, Position 2 = 100%
-                            const bgPosX = tileCol * 50;
-                            const bgPosY = tileRow * 50;
+                                // Background position for 3x3 grid
+                                const bgPosX = tileCol * 50;
+                                const bgPosY = tileRow * 50;
 
-                            return (
-                                <motion.button
-                                    key={index}
-                                    onClick={() => moveTile(index)}
-                                    disabled={isEmpty || completed}
-                                    className={`
-                                        relative rounded-lg overflow-hidden
-                                        ${isEmpty
-                                            ? 'bg-gray-700 cursor-default'
-                                            : 'cursor-pointer hover:opacity-90 shadow-lg'
-                                        }
-                                        ${canMove(index) && !isEmpty && !completed ? 'ring-2 ring-pink-400 ring-offset-2' : ''}
-                                        transition-all duration-200
-                                    `}
-                                    whileTap={!isEmpty && !completed ? { scale: 0.95 } : {}}
-                                    layout
-                                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                >
-                                    {!isEmpty && (
-                                        <div
-                                            className="w-full h-full"
-                                            style={{
-                                                backgroundImage: `url(${ringImage})`,
-                                                backgroundSize: '300% 300%',
-                                                backgroundPosition: `${bgPosX}% ${bgPosY}%`,
-                                                backgroundRepeat: 'no-repeat'
-                                            }}
-                                        />
-                                    )}
-                                </motion.button>
-                            );
-                        })}
+                                return (
+                                    <motion.button
+                                        key={index}
+                                        onClick={() => moveTile(index)}
+                                        disabled={isEmpty || completed}
+                                        className={`
+                                            relative rounded-lg overflow-hidden
+                                            ${isEmpty
+                                                ? 'bg-gray-700 cursor-default'
+                                                : 'cursor-pointer hover:opacity-90 active:opacity-75 shadow-lg'
+                                            }
+                                            ${canMove(index) && !isEmpty && !completed 
+                                                ? 'ring-2 ring-pink-400 ring-offset-1 sm:ring-offset-2' 
+                                                : ''
+                                            }
+                                            transition-all duration-200
+                                            touch-none select-none
+                                        `}
+                                        whileTap={!isEmpty && !completed ? { scale: 0.95 } : {}}
+                                        layout
+                                        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                                    >
+                                        {!isEmpty && (
+                                            <div
+                                                className="w-full h-full"
+                                                style={{
+                                                    backgroundImage: `url(${ringImage})`,
+                                                    backgroundSize: '300% 300%',
+                                                    backgroundPosition: `${bgPosX}% ${bgPosY}%`,
+                                                    backgroundRepeat: 'no-repeat'
+                                                }}
+                                            />
+                                        )}
+                                    </motion.button>
+                                );
+                            })}
+                        </div>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                        <div className="text-center">
-                            <p className="text-sm text-gray-500">Moves</p>
-                            <p className="text-2xl font-bold text-pink-600">{moves}</p>
+                    {/* Stats and Controls */}
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div className="text-center sm:text-left">
+                            <p className="text-xs sm:text-sm text-gray-500">Moves</p>
+                            <p className="text-xl sm:text-2xl font-bold text-pink-600">{moves}</p>
                         </div>
 
                         <Button
                             onClick={initializePuzzle}
                             variant="outline"
-                            className="gap-2"
+                            className="gap-2 w-full sm:w-auto"
                             disabled={completed}
                         >
                             <Shuffle className="w-4 h-4" />
@@ -170,34 +177,38 @@ export const ProposeDay = () => {
                     </div>
                 </div>
 
-                {/* Proposal text */}
-                <AnimatePresence>
+                {/* Proposal Message */}
+                <AnimatePresence mode="wait">
                     {completed ? (
                         <motion.div
+                            key="completed"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="bg-white rounded-2xl shadow-xl p-8 text-center space-y-4"
+                            exit={{ opacity: 0, y: -20 }}
+                            className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-center space-y-3 sm:space-y-4"
                         >
-                            <h2 className="text-3xl font-bold text-pink-600">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-600 leading-tight">
                                 You completed the puzzle, and you complete me. ❤️
                             </h2>
-                            <p className="text-xl text-gray-700">
+                            <p className="text-lg sm:text-xl text-gray-700">
                                 Happy Propose Day, love.
                             </p>
-                            <p className="text-lg text-pink-500 font-medium">
+                            <p className="text-base sm:text-lg text-pink-500 font-medium">
                                 You are my end. You are my forever! 💕
                             </p>
                         </motion.div>
                     ) : (
                         <motion.div
+                            key="instructions"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="text-center space-y-2"
+                            exit={{ opacity: 0 }}
+                            className="text-center space-y-2 px-4"
                         >
-                            <h3 className="text-xl font-semibold text-gray-700">
+                            <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
                                 Can you solve it?
                             </h3>
-                            <p className="text-gray-500">
+                            <p className="text-sm sm:text-base text-gray-500">
                                 Slide the tiles to re-create the ring and unlock my proposal.
                             </p>
                         </motion.div>
