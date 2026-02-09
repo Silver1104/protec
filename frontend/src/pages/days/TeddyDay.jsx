@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 const animalConfigs = {
     bear: {
         emoji: '🧸',
-        name: 'Bear',
+        name: 'Bhondu',
         bodyShape: (x, y, color) => `
             <defs>
                 <radialGradient id="bearBodyGrad-${color}" cx="50%" cy="30%">
@@ -68,7 +68,7 @@ const animalConfigs = {
     },
     cat: {
         emoji: '🐱',
-        name: 'Cat',
+        name: 'Billota',
         bodyShape: (x, y, color) => `
             <defs>
                 <radialGradient id="catBodyGrad-${color}" cx="50%" cy="30%">
@@ -131,7 +131,7 @@ const animalConfigs = {
     },
     penguin: {
         emoji: '🐧',
-        name: 'Penguin',
+        name: 'Pengu',
         bodyShape: (x, y, color) => `
             <defs>
                 <radialGradient id="penguinBodyGrad" cx="50%" cy="30%">
@@ -235,7 +235,7 @@ const animalConfigs = {
     },
     panda: {
         emoji: '🐼',
-        name: 'Panda',
+        name: 'Pandu',
         bodyShape: (x, y, color) => `
             <defs>
                 <radialGradient id="pandaBodyGrad" cx="50%" cy="30%">
@@ -289,7 +289,7 @@ const animalConfigs = {
     },
     fox: {
         emoji: '🦊',
-        name: 'Fox',
+        name: 'Lomdi',
         bodyShape: (x, y, color) => `
             <defs>
                 <radialGradient id="foxBodyGrad-${color}" cx="50%" cy="30%">
@@ -589,7 +589,7 @@ export const TeddyDay = () => {
 
     const renderCompanionSVG = (x = 100, y = 80, scale = 1) => {
         const config = animalConfigs[companion.animalType];
-
+        
         return (
             <g transform={`scale(${scale})`}>
                 <g dangerouslySetInnerHTML={{ __html: config.bodyShape(x, y, companion.bodyColor) }} />
@@ -606,8 +606,9 @@ export const TeddyDay = () => {
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.95 }}
             onClick={onClick}
-            className={`w-14 h-14 rounded-full border-4 transition-all shadow-md ${selected ? 'border-pink-500 shadow-xl ring-4 ring-pink-200' : 'border-gray-300 hover:border-pink-300'
-                }`}
+            className={`w-14 h-14 rounded-full border-4 transition-all shadow-md ${
+                selected ? 'border-pink-500 shadow-xl ring-4 ring-pink-200' : 'border-gray-300 hover:border-pink-300'
+            }`}
             style={{ backgroundColor: color }}
         >
             {selected && (
@@ -655,12 +656,12 @@ export const TeddyDay = () => {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center mb-12"
                     >
-                        <h1 className="text-6xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 bg-clip-text text-transparent mb-4 drop-shadow-sm"
+                        <h1 className="text-6xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 bg-clip-text text-transparent mb-4 drop-shadow-sm" 
                             style={{ fontFamily: 'Pacifico, cursive' }}>
                             💕 Teddy Day Builder 💕
                         </h1>
                         <p className="text-xl text-gray-700 font-medium">
-                            Create your perfect companion with love!
+                            Be da artist bich
                         </p>
                     </motion.header>
 
@@ -679,7 +680,7 @@ export const TeddyDay = () => {
                                     className="relative w-full max-w-md mx-auto"
                                     whileHover={{ scale: 1.02 }}
                                     transition={{ type: 'spring', stiffness: 300 }}
-                                    style={{
+                                    style={{ 
                                         background: 'radial-gradient(circle at 50% 50%, rgba(255,182,193,0.15), transparent 70%)',
                                         borderRadius: '20px',
                                         padding: '2rem'
@@ -689,10 +690,10 @@ export const TeddyDay = () => {
                                         {/* Background glow */}
                                         <defs>
                                             <filter id="glow">
-                                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                                                 <feMerge>
-                                                    <feMergeNode in="coloredBlur" />
-                                                    <feMergeNode in="SourceGraphic" />
+                                                    <feMergeNode in="coloredBlur"/>
+                                                    <feMergeNode in="SourceGraphic"/>
                                                 </feMerge>
                                             </filter>
                                         </defs>
@@ -708,8 +709,8 @@ export const TeddyDay = () => {
                                             exit={{ opacity: 0, y: -20 }}
                                             className="text-center mt-6"
                                         >
-                                            <p className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 bg-clip-text text-transparent drop-shadow-sm"
-                                                style={{ fontFamily: 'Pacifico, cursive' }}>
+                                            <p className="text-4xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 bg-clip-text text-transparent drop-shadow-sm" 
+                                               style={{ fontFamily: 'Pacifico, cursive' }}>
                                                 {companion.name} 💕
                                             </p>
                                             <p className="text-sm text-gray-500 mt-2 font-medium">
@@ -740,10 +741,11 @@ export const TeddyDay = () => {
                                             whileHover={{ y: -4, scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
                                             onClick={() => setCompanion({ ...companion, animalType: type })}
-                                            className={`p-5 rounded-xl border-3 transition-all ${companion.animalType === type
+                                            className={`p-5 rounded-xl border-3 transition-all ${
+                                                companion.animalType === type
                                                     ? 'border-pink-500 bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 shadow-lg ring-4 ring-pink-200'
                                                     : 'border-gray-200 bg-white hover:border-pink-300 hover:shadow-md'
-                                                }`}
+                                            }`}
                                         >
                                             <div className="text-5xl mb-2">{config.emoji}</div>
                                             <div className="text-sm font-bold text-gray-700">{config.name}</div>
@@ -786,10 +788,11 @@ export const TeddyDay = () => {
                                             whileHover={{ scale: 1.08, y: -2 }}
                                             whileTap={{ scale: 0.95 }}
                                             onClick={() => setCompanion({ ...companion, accessory: acc.value })}
-                                            className={`p-4 rounded-xl border-3 text-center text-sm font-bold transition-all ${companion.accessory === acc.value
+                                            className={`p-4 rounded-xl border-3 text-center text-sm font-bold transition-all ${
+                                                companion.accessory === acc.value
                                                     ? 'border-pink-500 bg-gradient-to-br from-pink-50 via-purple-50 to-pink-50 shadow-lg'
                                                     : 'border-gray-200 bg-white hover:border-pink-300 hover:shadow-md'
-                                                }`}
+                                            }`}
                                         >
                                             <div className="text-2xl mb-1">{acc.emoji}</div>
                                             <div className="text-xs">{acc.label}</div>
@@ -853,10 +856,11 @@ export const TeddyDay = () => {
                                 whileTap={{ scale: 0.98 }}
                                 onClick={handleSave}
                                 disabled={saved}
-                                className={`w-full py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl ${saved
+                                className={`w-full py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl ${
+                                    saved 
                                         ? 'bg-gradient-to-r from-green-400 to-teal-500 text-white cursor-default'
                                         : 'bg-gradient-to-r from-green-500 to-teal-600 text-white'
-                                    }`}
+                                }`}
                             >
                                 {saved ? '✓ Saved Successfully!' : '💾 Save My Companion'}
                             </motion.button>
@@ -884,7 +888,7 @@ export const TeddyDay = () => {
                                 colors={['#FF6B9D', '#FFB6C1', '#DDA0DD', '#E0BBE4', '#957DAD', '#FEC8D8', '#FFDFD3']}
                             />
                         )}
-
+                        
                         <motion.button
                             initial={{ scale: 0 }}
                             animate={{ scale: 1, rotate: 0 }}
@@ -968,44 +972,44 @@ export const TeddyDay = () => {
                                     <g transform="translate(300, 350)">
                                         {/* Dress */}
                                         <ellipse cx="0" cy="120" rx="90" ry="110" fill="url(#dress)" />
-                                        <path d="M -90 120 Q -90 80 -70 60 L -70 230 L 70 230 L 70 60 Q 90 80 90 120 Z"
-                                            fill="url(#dress)" opacity="0.9" />
-
+                                        <path d="M -90 120 Q -90 80 -70 60 L -70 230 L 70 230 L 70 60 Q 90 80 90 120 Z" 
+                                              fill="url(#dress)" opacity="0.9" />
+                                        
                                         {/* Arms */}
-                                        <ellipse cx="-75" cy="80" rx="28" ry="70" fill="url(#girlSkin)"
-                                            transform="rotate(-30 -75 80)" />
-                                        <ellipse cx="75" cy="80" rx="28" ry="70" fill="url(#girlSkin)"
-                                            transform="rotate(30 75 80)" />
-
+                                        <ellipse cx="-75" cy="80" rx="28" ry="70" fill="url(#girlSkin)" 
+                                                 transform="rotate(-30 -75 80)" />
+                                        <ellipse cx="75" cy="80" rx="28" ry="70" fill="url(#girlSkin)" 
+                                                 transform="rotate(30 75 80)" />
+                                        
                                         {/* Companion in arms */}
                                         <g transform="translate(-30, 100) scale(0.55)">
                                             {renderCompanionSVG(100, 80, 1)}
                                         </g>
-
+                                        
                                         {/* Head */}
                                         <circle cx="0" cy="-20" r="55" fill="url(#girlSkin)" />
-
+                                        
                                         {/* Hair */}
-                                        <path d="M -50 -40 Q -60 -60 -50 -70 Q -30 -75 0 -75 Q 30 -75 50 -70 Q 60 -60 50 -40"
-                                            fill="#3D2817" />
+                                        <path d="M -50 -40 Q -60 -60 -50 -70 Q -30 -75 0 -75 Q 30 -75 50 -70 Q 60 -60 50 -40" 
+                                              fill="#3D2817" />
                                         <ellipse cx="-45" cy="-30" rx="25" ry="40" fill="#3D2817" />
                                         <ellipse cx="45" cy="-30" rx="25" ry="40" fill="#3D2817" />
                                         <path d="M -55 -30 Q -60 10 -50 30 L -40 20 Q -45 -10 -45 -30 Z" fill="#3D2817" />
                                         <path d="M 55 -30 Q 60 10 50 30 L 40 20 Q 45 -10 45 -30 Z" fill="#3D2817" />
-
+                                        
                                         {/* Face */}
                                         <circle cx="-18" cy="-20" r="5" fill="#2D3436" />
                                         <circle cx="18" cy="-20" r="5" fill="#2D3436" />
                                         <circle cx="-16" cy="-22" r="2" fill="white" />
                                         <circle cx="20" cy="-22" r="2" fill="white" />
-
+                                        
                                         {/* Happy smile */}
-                                        <path d="M -20 0 Q 0 10 20 0"
-                                            stroke="#FF6B9D"
-                                            strokeWidth="3"
-                                            fill="none"
-                                            strokeLinecap="round" />
-
+                                        <path d="M -20 0 Q 0 10 20 0" 
+                                              stroke="#FF6B9D" 
+                                              strokeWidth="3" 
+                                              fill="none" 
+                                              strokeLinecap="round" />
+                                        
                                         {/* Blush */}
                                         <ellipse cx="-35" cy="-10" rx="12" ry="9" fill="#FFB6C1" opacity="0.6" />
                                         <ellipse cx="35" cy="-10" rx="12" ry="9" fill="#FFB6C1" opacity="0.6" />
@@ -1019,12 +1023,12 @@ export const TeddyDay = () => {
                                 transition={{ delay: 0.6 }}
                                 className="mt-8"
                             >
-                                <p className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg mb-3"
-                                    style={{ fontFamily: 'Quicksand, sans-serif' }}>
-                                    Your {animalConfigs[companion.animalType].name} companion is ready! 🎉
+                                <p className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg mb-3" 
+                                   style={{ fontFamily: 'Quicksand, sans-serif' }}>
+                                    Your bembi {animalConfigs[companion.animalType].name} 🎉
                                 </p>
                                 <p className="text-xl md:text-2xl text-white/95 drop-shadow-md">
-                                    Spreading love and joy this Teddy Day! 💝✨
+                                    You more precious than that any teddy hunnn 💝✨
                                 </p>
                             </motion.div>
                         </motion.div>
