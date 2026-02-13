@@ -177,10 +177,7 @@ export const ValentineDay = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
                     >
-                        To my dearest love, every moment with you is a treasure.
-                        This collection of our memories is just a small glimpse of
-                        the infinite love I have for you. You make every day feel
-                        like Valentine&apos;s Day. 💕
+                        We just betterrrrr gangg. We locked in fr fr.
                     </motion.p>
                 </motion.div>
 
