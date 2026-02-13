@@ -15,6 +15,7 @@ import slots8 from '../../assets/images/slots8.png'
 import kinks from '../../assets/images/kinks.png'
 import past from '../../assets/images/past.png'
 import cinema from '../../assets/videos/cinema.mp4'
+import final from '../../assets/videos/final.mp4'
 
 export const ValentineDay = () => {
     // Carousel items - Replace with your actual media URLs
@@ -41,7 +42,7 @@ export const ValentineDay = () => {
         },
         {
             type: 'video',
-            src: 'https://www.w3schools.com/html/movie.mp4',
+            src: final,
             alt: 'Special video',
         },
     ];
